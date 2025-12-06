@@ -1,0 +1,40 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+
+# Production
+/build
+
+# Environment Variables (SENSITIVE - DO NOT REMOVE)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# Supabase
+supabase/.temp/
+
+# Vercel
+.vercel
+
+# System & IDE
+.DS_Store
+.vscode/
+*.tsbuildinfo
+
+# Debug Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

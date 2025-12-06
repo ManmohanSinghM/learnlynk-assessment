@@ -1,0 +1,10 @@
+To implement Stripe Checkout for an application fee:
+
+1. Create a backend endpoint (e.g., /api/create-checkout) that initializes a Stripe Checkout Session using `stripe.checkout.sessions.create`.
+2. Pass the `application_id` and `tenant_id` inside the session's `metadata` object so we can track which application this payment belongs to.
+3. Set the `success_url` to a confirmation page on the frontend and `cancel_url` back to the payment page.
+4. On the frontend, redirect the user to the `url` returned by the Stripe session.
+5. Create a Webhook endpoint (e.g., /api/webhooks/stripe) to listen for the `checkout.session.completed` event.
+6. Verify the webhook signature to ensure the request is genuinely from Stripe.
+7. Retrieve the `application_id` from the event metadata and update the `applications` table status to 'paid'.
+8. Update the application stage/timeline in the database to reflect the successful payment.
